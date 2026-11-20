@@ -294,6 +294,21 @@
             </div>
         </div>
 
+        <!-- Transmissão Ao Vivo (YouTube Live) -->
+        <div class="glass-card p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-2xl border border-champagne/40 max-w-2xl mx-auto space-y-2">
+            <p class="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-champagne font-medium">Transmissão Ao Vivo</p>
+            <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black shadow-inner">
+                <iframe
+                    id="youtube-live-iframe"
+                    data-src="https://www.youtube.com/embed/e-ACqioBb3w?autoplay=1&mute=1&rel=0"
+                    class="absolute inset-0 w-full h-full"
+                    title="Transmissão ao vivo - Casamento Civil Samuel & Grécylla"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                ></iframe>
+            </div>
+        </div>
+
         <div class="glass-card p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-xl border border-champagne/20 max-w-xl mx-auto space-y-2 text-stone-300 text-xs sm:text-sm">
             <p><i class="fa-regular fa-calendar text-champagne mr-2"></i> <strong class="text-white">20 de novembro de 2026</strong></p>
             <p><i class="fa-regular fa-clock text-champagne mr-2"></i> 14h (Portugal) / 11h (Brasília)</p>
@@ -508,6 +523,11 @@
                     mainContent.classList.remove('opacity-0');
                     mainContent.classList.add('opacity-100');
                 }, 100);
+            }
+
+            const ytIframe = document.getElementById('youtube-live-iframe');
+            if (ytIframe && ytIframe.dataset.src && !ytIframe.src) {
+                ytIframe.src = ytIframe.dataset.src;
             }
             
             const localVideo = document.getElementById('local-video');
